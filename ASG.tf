@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "elbP10_launch_config" {
-  image_id      = "ami-0fc15d50d39e4503c"
+  image_id      =var.p10-ami-id
   instance_type = "t2.micro"
   security_groups = [aws_security_group.SG-HTTP-P10.id]
 

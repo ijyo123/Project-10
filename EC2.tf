@@ -1,5 +1,5 @@
 resource "aws_instance" "webserver1-p10" {
-  ami           = "ami-0fc15d50d39e4503c"
+  ami           = var.p10-ami-id
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.SG-HTTP-P10.id]
   subnet_id =  aws_subnet.project10-publicsubnet1.id
@@ -12,7 +12,7 @@ resource "aws_instance" "webserver1-p10" {
 }
 
 resource "aws_instance" "webserver2-p10" {
-  ami           = "ami-0fc15d50d39e4503c"
+  ami           = var.p10-ami-id
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.SG-HTTP-P10.id]
   subnet_id =  aws_subnet.project10-publicsubnet2.id
@@ -25,7 +25,7 @@ resource "aws_instance" "webserver2-p10" {
 }
 
 resource "aws_instance" "webserver3-p10" {
-  ami           = "ami-0fc15d50d39e4503c"
+  ami           = var.p10-ami-id
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.SG-HTTP-P10.id]
   subnet_id =  aws_subnet.project10-publicsubnet2.id

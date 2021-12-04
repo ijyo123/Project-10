@@ -1,6 +1,6 @@
 #Create VPC
 resource "aws_vpc" "project10VPC" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.p10-vpc-cidr
   instance_tenancy = "default"
 
   tags = {
@@ -10,7 +10,7 @@ resource "aws_vpc" "project10VPC" {
 #Create Public Subnet1
 resource "aws_subnet" "project10-publicsubnet1" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.0.0/24"
+  cidr_block = var.p10-pubsub1-cidr
   availability_zone = "eu-west-2a"
   map_public_ip_on_launch= true
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "project10-publicsubnet1" {
 #Create Public Subnet2
 resource "aws_subnet" "project10-publicsubnet2" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.p10-pubsub2-cidr
   availability_zone = "eu-west-2b"
   map_public_ip_on_launch = true
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "project10-publicsubnet2" {
 #Create Public Subnet3
 resource "aws_subnet" "project10-publicsubnet3" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.2.0/24"
+  cidr_block = var.p10-pubsub3-cidr
   availability_zone = "eu-west-2c"
   map_public_ip_on_launch = true
 
@@ -46,7 +46,7 @@ resource "aws_subnet" "project10-publicsubnet3" {
 #Create Private Subnets
 resource "aws_subnet" "project10-privatesubnet1" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.3.0/24"
+  cidr_block = var.p10-privsub1-cidr
   availability_zone = "eu-west-2a"
   map_public_ip_on_launch = true
 
@@ -57,7 +57,7 @@ resource "aws_subnet" "project10-privatesubnet1" {
 
 resource "aws_subnet" "project10-privatesubnet2" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.4.0/24"
+  cidr_block =var.p10-privsub2-cidr
   availability_zone = "eu-west-2b"
   map_public_ip_on_launch = true
 
@@ -68,7 +68,7 @@ resource "aws_subnet" "project10-privatesubnet2" {
 
 resource "aws_subnet" "project10-privatesubnet3" {
   vpc_id     = aws_vpc.project10VPC.id
-  cidr_block = "10.0.5.0/24"
+  cidr_block = var.p10-privsub3-cidr
   availability_zone = "eu-west-2c"
   map_public_ip_on_launch = true
 
